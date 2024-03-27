@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/postgres'); // Asegúrate de importar la instancia de Sequelize correctamente
+const sequelize = require('../../config/postgres'); // Asegúrate de importar la instancia de Sequelize correctamente
 
 // Define el modelo para la tabla users
 const User = sequelize.define('userss', {

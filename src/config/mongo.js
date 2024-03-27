@@ -5,14 +5,17 @@ const dbConnect = async () => {
         const DB_URI = process.env.DB_URI;
 
         await mongoose.connect(DB_URI, {
-            // Opciones adicionales pueden ir aquí, pero elimina las obsoletas
+            useNewUrlParser: true,
+            useUnifiedTopology: true
         });
 
-        console.log('Conexión a la base de datos establecida');
+        console.log('Conexión a MongoDB establecida');
     } catch (error) {
-        console.error('Error al conectar a la base de datos:', error.message);
+        console.error('Error al conectar a MongoDB:', error.message);
     }
 };
+
+module.exports = { dbConnect };
 
 /* const mongoose = require('mongoose');
 const { Sequelize } = require('sequelize');
@@ -51,5 +54,5 @@ const dbConnect = async () => {
      }
  }; */
 
-module.exports= { dbConnect }
+// module.exports= { dbConnect }
 

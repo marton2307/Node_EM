@@ -1,5 +1,5 @@
 const { httpError } = require('../helpers/handelError');
-const userss = require('../models/userss'); // Asegúrate de importar el modelo correcto para PostgreSQL
+const userss = require('../models/mongo/userss'); // Asegúrate de importar el modelo correcto para PostgreSQL
 
 const getItems = async (req, res) => {
     try {
@@ -9,7 +9,7 @@ const getItems = async (req, res) => {
         httpError(res, error);
     }
 };
-y
+
 const getItem = (req, res) => {
     // Lógica para obtener un único elemento de la base de datos
 };
@@ -17,7 +17,7 @@ const getItem = (req, res) => {
 const createItem = async (req, res) => {
     try {
         const { name, age, email } = req.body;
-        const resDetail = await User.create({ name, age, email });
+        const resDetail = await userss.create({ name, age, email });
         res.send({ data: resDetail });
     } catch (error) {
         httpError(res, error);

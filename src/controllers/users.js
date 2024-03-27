@@ -1,5 +1,5 @@
 const {httpError} = require ('../helpers/handelError')
-const userModel = require('../models/users')
+const userModel = require('../models/mongo/users')
 
 //('../models/users')
 

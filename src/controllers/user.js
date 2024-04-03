@@ -1,5 +1,5 @@
 const { httpError } = require('../helpers/handelError');
-const userss = require('../models/mongo/userss'); // Asegúrate de importar el modelo correcto para PostgreSQL
+const userss = require('../models/postgres/user'); // Asegúrate de importar el modelo correcto para PostgreSQL
 
 const getItems = async (req, res) => {
     try {

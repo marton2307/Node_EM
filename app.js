@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Rutas de tu aplicación
-app.use('/api', require('./src/routes'));
+app.use('/', require('./src/routes'));
 
 // Conexión a MongoDB
 mongoDBConnect();

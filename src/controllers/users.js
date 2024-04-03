@@ -1,12 +1,14 @@
 const {httpError} = require ('../helpers/handelError')
 const userModel = require('../models/mongo/users')
+const userss = require('../models/postgres/user')
 
 //('../models/users')
 
 const getItems = async (req, res) =>{
     try{
         const listAll = await userModel.find({})
-        res.send({data: listAll})
+        const usersAll = await sequelize.query("SELECT * FROM `users`", { type: QueryTypes.SELECT });
+        res.send({data: listAll, usersAll})
         
     }catch (e){
         httpError(res, e)

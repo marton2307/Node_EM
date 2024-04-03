@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../../config/postgres');
+const {dbConnect } = require('../../config/postgres')
 
-const PostgresUser = sequelize.define('users', {
+const PostgresUser = dbConnect.define('users', {
     name: {
         type: DataTypes.STRING
     },

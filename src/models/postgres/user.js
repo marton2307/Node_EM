@@ -1,5 +1,6 @@
-const { Sequelize, DataTypes, QueryTypes } = require('sequelize');
-const sequelize = require('../../config/postgres'); // Asume que dbConnect es exportado como sequelize
+
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../../config/postgres'); 
 
 const PostgresUser = sequelize.define('users', {
     name: { type: DataTypes.STRING },
@@ -13,6 +14,5 @@ PostgresUser.sync().then(() => {
 }).catch(error => {
     console.error('Error al crear la tabla de usuarios en PostgreSQL:', error);
 });
-
 
 module.exports = PostgresUser;

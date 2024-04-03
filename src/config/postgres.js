@@ -1,21 +1,17 @@
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
 
-const dbConnect = async () => {
+const sequelize = new Sequelize(process.env.POSTGRES_URI, {
+    dialect: 'postgres',
+    logging: true,
+});
+
+const postgresDBConnect = async () => {
     try {
-        // Conexión a PostgreSQL
-        const postgresDB_URI = process.env.POSTGRES_URI;
-        console.log("Postgres", postgresDB_URI);
-        const sequelize = new Sequelize(postgresDB_URI, {
-            dialect: 'postgres', // Especifica el dialecto de la base de datos
-            // Otros opciones como host, puerto, usuario, contraseña, etc., serán extraídas de la URI de conexión
-        });
-
-        // Prueba de conexión a PostgreSQL
         await sequelize.authenticate();
-        console.log('Conexión a PostgreSQL establecida');
+        console.log('Conexión a PostgreSQL establecida.');
     } catch (error) {
-        console.error('Error al conectar a PostgreSQL:', error.message);
+        console.error('Error al conectar a PostgreSQL:', error);
     }
 };
 
-module.exports= { dbConnect }
+module.exports = { sequelize, postgresDBConnect };

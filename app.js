@@ -1,8 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+
 const { dbConnect: mongoDBConnect } = require('./src/config/mongo');
-const { dbConnect: postgresDBConnect } = require('./src/config/postgres');
+const { postgresDBConnect } = require('./src/config/postgres');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
